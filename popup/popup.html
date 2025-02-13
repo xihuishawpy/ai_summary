@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>AI Summary</title>
   <link rel="stylesheet" href="popup.css">
+  <script src="../lib/marked.min.js"></script>
 </head>
 <body>
   <div class="container">
@@ -12,17 +13,35 @@
     </div>
     
     <div class="controls">
-      <button id="summarize" class="primary-button">生成摘要</button>
-      <select id="length">
+      <select id="model" class="select-input">
+        <option value="glm-4-flash">GLM-4-Flash (默认)</option>
+        <option value="glm-4-plus">GLM-4-Plus</option>
+        <option value="glm-4v-plus">GLM-4V-Plus</option>
+        <option value="glm-4v">GLM-4V</option>
+        <option value="glm-4-airx">GLM-4-AirX</option>
+        <option value="glm-4-long">GLM-4-Long</option>
+        <option value="glm-4-flashx">GLM-4-FlashX</option>
+      </select>
+
+      <select id="length" class="select-input">
         <option value="short">简短摘要</option>
         <option value="medium">中等长度</option>
         <option value="long">详细摘要</option>
       </select>
     </div>
 
+    <div class="prompt-container">
+      <label for="customPrompt">自定义提示词（可选）：</label>
+      <textarea id="customPrompt" placeholder="请帮我总结网页内容，输出格式为md，希望得到内容摘要、主要内容"></textarea>
+    </div>
+
+    <div class="action-buttons">
+      <button id="summarize" class="primary-button">生成摘要</button>
+    </div>
+
     <div class="summary-container">
       <div id="loading" class="loading hidden">正在生成摘要...</div>
-      <div id="summary" class="summary"></div>
+      <div id="summary" class="summary markdown-body"></div>
     </div>
 
     <div class="footer">
