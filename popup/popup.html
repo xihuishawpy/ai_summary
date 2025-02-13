@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>AI Summary</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>AI 网页摘要</h1>
+    </div>
+    
+    <div class="controls">
+      <button id="summarize" class="primary-button">生成摘要</button>
+      <select id="length">
+        <option value="short">简短摘要</option>
+        <option value="medium">中等长度</option>
+        <option value="long">详细摘要</option>
+      </select>
+    </div>
+
+    <div class="summary-container">
+      <div id="loading" class="loading hidden">正在生成摘要...</div>
+      <div id="summary" class="summary"></div>
+    </div>
+
+    <div class="footer">
+      <button id="copy" class="secondary-button">复制摘要</button>
+      <button id="share" class="secondary-button">分享</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html> 

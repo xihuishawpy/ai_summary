@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "AI Summary",
+  "version": "1.0",
+  "description": "使用AI智能总结网页内容",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://open.bigmodel.cn/*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/icon.png",
+      "48": "assets/icon.png",
+      "128": "assets/icon.png"
+    }
+  },
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["lib/readability.js", "lib/turndown.js", "content/content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {
+    "16": "assets/icon.png",
+    "48": "assets/icon.png",
+    "128": "assets/icon.png"
+  },
+  "options_page": "options/options.html"
+} 
